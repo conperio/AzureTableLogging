@@ -1,0 +1,29 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        source-url: https://api.nuget.org/v3/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_SECRET}}
+    - name: Package Release
+      run: |
+        cd Conperio.AzureTableLogging
+        dotnet pack -c Release -o out
+    - name: Push generated package to GitHub registry
+      run: dotnet nuget push ./Conperio.AzureTableLogging/out/*.nupkg --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_SECRET}}
+   
