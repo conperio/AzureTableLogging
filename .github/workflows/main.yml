@@ -25,5 +25,5 @@ jobs:
         cd Conperio.AzureTableLogging
         dotnet pack -c Release -o out
     - name: Push generated package to GitHub registry
-      run: dotnet nuget push ./Conperio.AzureTableLogging/out/*.nupkg --skip-duplicate --no-symbols true --api-key ${{secrets.NUGET_SECRET}}
+      run: dotnet nuget push ./Conperio.AzureTableLogging/out/*.nupkg --skip-duplicate --no-symbols --api-key ${{secrets.NUGET_SECRET}}
    
