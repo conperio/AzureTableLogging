@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Conperio.AzureTableLogging;
 
-public class AzureTableLogger : ILogger
+public partial class AzureTableLogger : ILogger
 {
     private readonly TableClient _tableClient;
     private readonly string _name;
@@ -33,14 +33,14 @@ public class AzureTableLogger : ILogger
             return;
         }
 
-        var log = new TableEntity
+        var log = new TableLogEntry
         {
             PartitionKey = DateTime.Now.ToString("yyyyMMdd"),
-            RowKey = Guid.NewGuid().ToString()
+            RowKey = Guid.NewGuid().ToString(),
+            EventId = eventId.Id,
+            LogLevel = (int)logLevel,
+            Message = formatter(state, exception)
         };
-        log.Add("EventId", eventId.Id);
-        log.Add("LogLevel", (int)logLevel);
-        log.Add("Message", formatter(state, exception));
 
         _tableClient.AddEntity(log);
     }
