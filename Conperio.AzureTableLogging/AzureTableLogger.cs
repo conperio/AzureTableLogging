@@ -1,5 +1,6 @@
 ﻿using Azure.Data.Tables;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace Conperio.AzureTableLogging;
 
@@ -39,9 +40,14 @@ public partial class AzureTableLogger : ILogger
             RowKey = Guid.NewGuid().ToString(),
             EventId = eventId.Id,
             LogLevel = (int)logLevel,
-            Message = formatter(state, exception)
+            Message = MessageFormatter(state, exception)
         };
 
         _tableClient.AddEntity(log);
+    }
+
+    private static string MessageFormatter<TState>(TState state, Exception? exception)
+    {
+        return state?.ToString() + exception != null ? $"\nException: {exception?.Message}\nStacktrace: {exception?.StackTrace}" : string.Empty;
     }
 }
