@@ -40,14 +40,15 @@ public partial class AzureTableLogger : ILogger
             RowKey = Guid.NewGuid().ToString(),
             EventId = eventId.Id,
             LogLevel = (int)logLevel,
-            Message = MessageFormatter(state, exception)
+            Message = MessageFormatter(state, exception, formatter)
         };
 
         _tableClient.AddEntity(log);
     }
 
-    private static string MessageFormatter<TState>(TState state, Exception? exception)
+    private static string MessageFormatter<TState>(TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
-        return state?.ToString() + exception != null ? $"\nException: {exception?.Message}\nStacktrace: {exception?.StackTrace}" : string.Empty;
+        // The default formatter only formats the state.
+        return formatter(state, exception) + exception != null ? $"\nException: {exception?.Message}\nStacktrace: {exception?.StackTrace}" : string.Empty;
     }
 }
