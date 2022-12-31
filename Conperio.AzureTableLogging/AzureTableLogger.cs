@@ -1,6 +1,7 @@
 ﻿using Azure.Data.Tables;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Text;
 
 namespace Conperio.AzureTableLogging;
 
@@ -49,6 +50,12 @@ public partial class AzureTableLogger : ILogger
     private static string MessageFormatter<TState>(TState state, Exception? exception, Func<TState, Exception?, string> formatter)
     {
         // The default formatter only formats the state.
-        return formatter(state, exception) + exception != null ? $"\nException: {exception?.Message}\nStacktrace: {exception?.StackTrace}" : string.Empty;
+        var sb = new StringBuilder();
+        sb.Append(formatter(state, exception));
+        if(exception != null)
+        {
+            sb.Append($"\nException: {exception.Message}\nStacktrace: {exception.StackTrace}");
+        }
+        return  sb.ToString();
     }
 }
