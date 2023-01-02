@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Apple bs
 *.DS_Store
+/LoggingApplication/Properties/launchSettings.json
