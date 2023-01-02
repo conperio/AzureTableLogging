@@ -25,7 +25,7 @@ public partial class AzureTableLogger : ILogger
 
     public bool IsEnabled(LogLevel logLevel)
     {
-        return _getCurrentConfig().LogLevel <= logLevel && _initialized;
+        return _getCurrentConfig().LogLevel <= logLevel;
     }
 
     private void Initialize()
