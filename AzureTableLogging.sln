@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1704.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conperio.AzureTableLogging", "Conperio.AzureTableLogging\Conperio.AzureTableLogging.csproj", "{8D65FB84-180F-4F93-9531-B939F594F630}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conperio.AzureTableLogging", "Conperio.AzureTableLogging\Conperio.AzureTableLogging.csproj", "{8D65FB84-180F-4F93-9531-B939F594F630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingApplication", "LoggingApplication\LoggingApplication.csproj", "{A69CA2C2-2209-47EB-9B14-6363F3312F70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,18 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{873103FF-398E-446A-BC79-4BD5F6BDCEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{873103FF-398E-446A-BC79-4BD5F6BDCEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{873103FF-398E-446A-BC79-4BD5F6BDCEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{873103FF-398E-446A-BC79-4BD5F6BDCEE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3F068B4-D52C-4153-8710-701ADE238182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3F068B4-D52C-4153-8710-701ADE238182}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3F068B4-D52C-4153-8710-701ADE238182}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3F068B4-D52C-4153-8710-701ADE238182}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D65FB84-180F-4F93-9531-B939F594F630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8D65FB84-180F-4F93-9531-B939F594F630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D65FB84-180F-4F93-9531-B939F594F630}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D65FB84-180F-4F93-9531-B939F594F630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A69CA2C2-2209-47EB-9B14-6363F3312F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69CA2C2-2209-47EB-9B14-6363F3312F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69CA2C2-2209-47EB-9B14-6363F3312F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69CA2C2-2209-47EB-9B14-6363F3312F70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
