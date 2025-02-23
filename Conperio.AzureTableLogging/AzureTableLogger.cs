@@ -52,6 +52,7 @@ public partial class AzureTableLogger : ILogger
             RowKey = Guid.NewGuid().ToString(),
             EventId = eventId.Id,
             LogLevel = (int)logLevel,
+            Name = _name,
             Message = FormatMessage(state, exception, formatter)
         };
 

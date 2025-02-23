@@ -9,6 +9,7 @@ public class TableLogEntry : ITableEntity
     public string RowKey { get; set; } = string.Empty;
     public int EventId { get; set; }
     public int LogLevel { get; set; }
+    public string Name { get; set; } = string.Empty;
     public string Message { get; set; } = string.Empty;
     public DateTimeOffset? Timestamp { get; set; } = DateTimeOffset.Now;
     public ETag ETag { get; set; }
